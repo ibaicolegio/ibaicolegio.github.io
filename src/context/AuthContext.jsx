@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
+  OAuthProvider,
   signInWithPopup,
   signOut,
   onAuthStateChanged,
@@ -68,6 +69,7 @@ export function AuthProvider({ children }) {
     const responseGoogle = new GoogleAuthProvider();
     return await signInWithPopup(auth, responseGoogle);
   };
+
   /**
    * The logout function is an asynchronous function that calls the signOut function and logs the
    * response to the console.
