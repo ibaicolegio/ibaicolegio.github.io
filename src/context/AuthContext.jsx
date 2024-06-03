@@ -30,7 +30,6 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const subscribed = onAuthStateChanged(auth, (currentUser) => {
       if (!currentUser) {
-        console.log("no hay usuario suscrito");
         setUser("");
       } else {
         setUser(currentUser);

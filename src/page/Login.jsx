@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import { GoogleIcon } from "../components/GoogleIcon";
-import { AppleIcon } from "../components/AppleIcon";
+import { GoogleIcon } from "../components/icon/GoogleIcon";
 
 function Login() {
    const auth = useAuth();
@@ -12,15 +11,10 @@ function Login() {
     auth.loginWithGoogle();
   }; 
 
-  const handleApple = (e) => {
-    e.preventDefault();
-    auth.loginWithApple();
-  }; 
 
+   return <>
 
-   return (
-
-    <body className="m-auto text-center">
+    <div className="m-auto text-center">
       <div className="container">
       <h1>Bienvenido a <img src="favicon.png" height={100} width={100}/></h1>
       
@@ -37,9 +31,8 @@ function Login() {
       </div>
       <br/>
       </div>
-      <pwa-install></pwa-install>
-    </body>
-  ); 
+    </div>
+  </> 
 }
 
 export default Login;
