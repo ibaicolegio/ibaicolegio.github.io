@@ -1,7 +1,9 @@
 import React from 'react'
 
 export const CanalView = ({setVentana,numero}) => {
+  
   const src="https://dlhd.sx/embed/stream-"+numero+".php";
+
   return (
     <div>
       <div className="card bg-secondary" onClick={() => setVentana("TV")}>
