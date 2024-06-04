@@ -29,8 +29,11 @@ function Login() {
             Iniciar sesion con Google
           </button>
         </div>
+        <br/>
+        <div className="card">
+          <PWAInstallComponent/>
+        </div>
       </div>
-      <PWAInstallComponent/>
       <br/>
       </div>
     </div>

@@ -57,6 +57,7 @@ const PWAInstallComponent = ({
         disable-install-description="true"
         icon="/favicon.png"
       />
+      <button type="button" className="btn btn-light btn-lg active" onClick={() => pwaInstallRef.current.showDialog(true)}>Instalar</button>
     </>
   );
 };
