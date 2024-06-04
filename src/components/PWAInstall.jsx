@@ -52,6 +52,7 @@ const PWAInstallComponent = ({
       <PWAInstall
         ref={pwaInstallRef}
         {...nonNullProps}
+        manifest-url="/manifest.json"
         name="IRM"
         description="Instalar IRM"
         disable-install-description="true"
