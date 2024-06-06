@@ -33,7 +33,7 @@ function Login() {
           <PWAInstallComponent/>
         </div>
         <hr/>
-        <a href="whatsapp://send?text=irm.eus" className="text-decoration-none">
+        <a href="whatsapp://send?text=https://www.irm.eus" className="text-decoration-none">
           <div className="card">
             <button className="btn btn-success btn-lg active text-center">
               Compartir
