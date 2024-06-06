@@ -20,19 +20,26 @@ function Login() {
       <h1>Bienvenido a <img src="favicon.png" height={100} width={100}/></h1>
       
       <hr/>
-      <h2>Iniciar sesion:</h2>
+      <h2>Iniciar sesión:</h2>
       <br/>
       <div className="col">
         <div className="card">
-          <button className="btn btn-white btn-lg active" onClick={(e) => handleGoogle(e)}>
+          <button className="btn btn-white btn-lg active text-center" onClick={(e) => handleGoogle(e)}>
             <GoogleIcon/>
-            Iniciar sesion con Google
           </button>
         </div>
-        <br/>
+        <hr/>
         <div className="card">
           <PWAInstallComponent/>
         </div>
+        <hr/>
+        <a href="whatsapp://send?text=irm.eus" className="text-decoration-none">
+          <div className="card">
+            <button className="btn btn-success btn-lg active text-center">
+              Compartir
+            </button>
+          </div>
+        </a>
       </div>
       <br/>
       </div>

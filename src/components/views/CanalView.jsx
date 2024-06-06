@@ -6,13 +6,23 @@ export const CanalView = ({setVentana,numero}) => {
 
   return (
     <div>
-      <div className="card bg-secondary" onClick={() => setVentana("TV")}>
-        <h1>TV</h1>
+      <div class="row">
+        <div class="col">
+          <div className="card bg-secondary text-white" onClick={() => setVentana("TV")}>
+            <h2>Volver a TV</h2>
+          </div>
+        </div>
+        <div class="col">
+          <div className="card bg-secondary text-white" onClick={() => setVentana("Deportes")}>
+            <h2>Volver a Deportes</h2>
+          </div>
+        </div>
       </div>
+      
       <hr/>
       <iframe className="video responsive" src={src} name="iframe_a" allowFullScreen="yes" width="100%" height="500px"/>
       <a href={src}>
-        <div class="alert alert-info" role="alert">
+        <div className="alert alert-info" role="alert">
           Link
         </div>
       </a>

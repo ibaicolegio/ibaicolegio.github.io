@@ -1,9 +1,12 @@
 import { TVCard } from "../card/TVCard";
 
 function TVView ({setVentana, setNumero}) {
-  const fotos=["MVF1.png","DAZNLI.png","DAZNL2.png","M1SD.png","M2SD.png","DAZN3.png","DAZN4.png","MLIGA.png","MLIGS.png","CHAPIO.png","GOLF+.png","CPDEP.png","ARTHUR.png","USOP2.png","USOP3.png","VAMOSD.png","MPLUS.png","ESP.png","ESP2.png"];
-
-  const html = fotos.map((item,i) => (<TVCard foto={item} color={i>6? "light" : "secondary"} numero={i} setNumero={setNumero} setVentana={setVentana}/>));
+  const canales=[{canal:537,foto:"MVF1.png"},{canal:538,foto:"DAZNLI.png"},{canal:43,foto:"DAZNL2.png"},{canal:445,foto:"M1SD.png"},{canal:446,foto:"M2SD.png"},
+    {canal:447,foto:"DAZN3.png"},{canal:448,foto:"DAZN4.png"},{canal:84,foto:"MLIGA.png"},{canal:539,foto:"MLIGS.png"},{canal:435,foto:"CHAPIO.png"},
+    {canal:528,foto:"GOLF+.png"},{canal:436,foto:"CPDEP.png"},{canal:438,foto:"ARTHUR.png"},{canal:526,foto:"USOP2.png"},{canal:527,foto:"USOP3.png"},
+    {canal:521,foto:"VAMOSD.png"},{canal:437,foto:"MPLUS.png"},{canal:524,foto:"ESP.png"},{canal:525,foto:"ESP2.png"}
+  ]
+  const html =  canales.map((canal) => <TVCard foto={canal.foto} color={"light"} numero={canal.canal} setNumero={setNumero} setVentana={setVentana}/>);
   
   return <>
       <div className="row row-cols-1 row-cols-md-3 g-4">

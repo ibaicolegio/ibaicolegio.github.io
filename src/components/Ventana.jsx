@@ -9,7 +9,7 @@ export function Ventana({ventana,setVentana,numero,setNumero}){
       case "TV":
         return <TVView setVentana={setVentana} setNumero={setNumero}/>;
       case "Deportes":
-        return <DeportesView/>;
+        return <DeportesView setVentana={setVentana} setNumero={setNumero}/>;
       case "Canal":
         return <CanalView setVentana={setVentana} numero={numero}/>;
       default:

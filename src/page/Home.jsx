@@ -10,7 +10,7 @@ function Home() {
   <div className="m-auto text-center">
     <div className="container">
       <br/>
-      <Header setVentana={setVentana}/>
+      <Header setVentana={setVentana} ventana={ventana}/>
       <Ventana ventana={ventana} setVentana={setVentana} numero={numero} setNumero={setNumero} />
       <Footer/>
     </div>
