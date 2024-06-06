@@ -9,12 +9,12 @@ export const CanalView = ({setVentana,numero}) => {
       <div class="row">
         <div class="col">
           <div className="card bg-secondary text-white" onClick={() => setVentana("TV")}>
-            <h2>Volver a TV</h2>
+            <h2>TV</h2>
           </div>
         </div>
         <div class="col">
           <div className="card bg-secondary text-white" onClick={() => setVentana("Deportes")}>
-            <h2>Volver a Deportes</h2>
+            <h2>Deportes</h2>
           </div>
         </div>
       </div>
