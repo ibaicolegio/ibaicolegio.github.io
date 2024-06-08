@@ -4,7 +4,7 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
 function Home() {
-  const [ventana, setVentana] = useState (null);
+  const [ventana, setVentana] = useState ("Home");
   const [numero, setNumero] = useState (null);
   return <>
   <div className="m-auto text-center">
