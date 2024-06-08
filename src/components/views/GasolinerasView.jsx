@@ -1,18 +1,16 @@
-import React from 'react'
+import React,{useState} from 'react'
+import { GasolineraCard } from '../card/GasolineraCard';
 
 export default function GasolinerasView() {
   
-  var x = document.getElementById("demo");
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
+  navigator.geolocation.getCurrentPosition(showPosition);
+
+  const [html, setHtml] = useState (null);
+  
   let latitud,
     longitud,
     gasolinerasProvincia = [],
-    todasGasolinerasProvincia = [],
-    mensaje='<span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-primary">Mas cercana</span>';
+    todasGasolinerasProvincia = [];
   function showPosition(position) {
     latitud = position.coords.latitude;
     longitud = position.coords.longitude;
@@ -39,88 +37,18 @@ export default function GasolinerasView() {
         });
   
         gasolinerasProvincia = todasGasolinerasProvincia.slice(0, 50);
+        console.log(gasolinerasProvincia);
+        setHtml(gasolinerasProvincia.map((gasolinera) =><GasolineraCard gasolina={"gasolinera.datos.Precio Gasolina 95 E5"} horario={gasolinera.datos.Horario}/>));
       })
       .catch(function (error) {
         console.log(error);
       });
-  }
-  
-  function gasolina() {
-    mensaje='<span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-primary">Mas barata</span>';
-    gasolinerasProvincia.sort((a, b) => {
-      if(a.datos["Precio Gasolina 95 E5"]==""){
-        a.datos["Precio Gasolina 95 E5"]="N/A";
-      }
-      if(b.datos["Precio Gasolina 95 E5"]==""){
-        b.datos["Precio Gasolina 95 E5"]="N/A";
-      }
-      if ( a.datos["Precio Gasolina 95 E5"] < b.datos["Precio Gasolina 95 E5"] ){
-        return -1;
-      }
-      if ( a.datos["Precio Gasolina 95 E5"] > b.datos["Precio Gasolina 95 E5"] ){
-        return 1;
-      }
-      return 0;
-    });
-    let gasolinas = document.getElementsByClassName("gasolina");
-    let diesels = document.getElementsByClassName("diesel");
-    for (const iterator of gasolinas) {
-      iterator.style.display = "inline";
-    }
-    for (const iterator of diesels) {
-      iterator.style.display = "none";
-    }
-    gasolinerasProvincia.sort((a, b) => {
-      return a.datos["Precio Gasolina 95 E5"] - b.datos["Precio Gasolina 95 E5"];
-    });
-  }
-  
-  function cantidad(cant) {
-    gasolinerasProvincia = todasGasolinerasProvincia.slice(0, cant);
-    if(document.getElementsByClassName("gasolina")[0].style.display == "inline"){
-      gasolina();
-    } else if(document.getElementsByClassName("diesel")[0].style.display == "inline"){
-      diesel();
-    } else {
-      dibujar(gasolinerasProvincia);
-    }
-  
-  }
-  
-  function diesel() {
-    mensaje='<span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-primary">Mas barata</span>';
-    gasolinerasProvincia.sort((a, b) => {
-      if(a.datos["Precio Gasoleo A"]==""){
-        a.datos["Precio Gasoleo A"]="N/A";
-      }
-      if(b.datos["Precio Gasoleo A"]==""){
-        b.datos["Precio Gasoleo A"]="N/A";
-      }
-      if ( a.datos["Precio Gasoleo A"] < b.datos["Precio Gasoleo A"] ){
-        return -1;
-      }
-      if ( a.datos["Precio Gasoleo A"] > b.datos["Precio Gasoleo A"] ){
-        return 1;
-      }
-      return 0;
-    });
-    let gasolinas = document.getElementsByClassName("gasolina");
-    let diesels = document.getElementsByClassName("diesel");
-    for (const iterator of diesels) {
-      iterator.style.display = "inline";
-    }
-    for (const iterator of gasolinas) {
-      iterator.style.display = "none";
-    }
-    gasolinerasProvincia.sort((a, b) => {
-      return a.datos["Precio Gasoleo A"] - b.datos["Precio Gasoleo A"];
-    });
-    console.log(gasolinerasProvincia);
+      
   }
   
   // Calcular distancia
   function Dist(lat1, lon1, lat2, lon2) {
-    rad = function (x) {
+    let rad = function (x) {
       return (x * Math.PI) / 180;
     };
   
@@ -137,20 +65,19 @@ export default function GasolinerasView() {
     var d = R * c;
     return d.toFixed(2);
   }
-
+  
 
   return <>
       <h1>Gasolineras cercanas</h1>
-      <button type="button" class="btn btn-secondary" onclick={gasolina()}>Gasolina</button>
-      <button type="button" class="btn btn-secondary" onclick={diesel()}>Diesel</button>
-      <button type="button" class="btn btn-light" onclick={cantidad(20)}>20</button>
-      <button type="button" class="btn btn-light" onclick={cantidad(50)}>50</button>
-      <button type="button" class="btn btn-light" onclick={cantidad(100)}>100</button>
+      <button type="button" class="btn btn-secondary" >Gasolina</button>
+      <button type="button" class="btn btn-secondary" >Diesel</button>
+      <button type="button" class="btn btn-light" >20</button>
+      <button type="button" class="btn btn-light" >50</button>
+      <button type="button" class="btn btn-light" >100</button>
       <br/>
       <div id="cargando" class="spinner-border mt-5" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
-      <p id="demo"></p>
+      {html}
   </>
 }
-
