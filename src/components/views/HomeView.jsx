@@ -2,29 +2,22 @@ import React, {useState} from "react";
 import { useAuth } from "../../context/AuthContext";
 import { AplicacionCard } from "../card/AplicacionCard";
 import { AplicacionUrlCard } from "../card/AplicacionUrlCard";
+import { VPN } from "../VPN";
 
 function HomeView({setVentana}) {
    const auth = useAuth();
   const {displayName} = auth.user
-  const [vpn, setVpn] = useState(false);
-  const response = fetch("https://https-filtering-check.adtidy.org/");
-  if(response=="OK"){
-    setVpn(true);
-  }
+
+  
   
 
 
   return <>
       <h1>Hola {displayName}</h1>
       <hr/>
-      <button type="button" class="btn position-relative">
+      <button type="button" className="btn position-relative">
         AdGuard
-        {vpn ? <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-          <span class="visually-hidden"></span>
-        </span> : <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-          <span class="visually-hidden"></span>
-        </span>}
-        
+        <VPN/>
       </button>
       
       <hr />
