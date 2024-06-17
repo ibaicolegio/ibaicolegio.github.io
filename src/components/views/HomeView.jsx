@@ -1,25 +1,19 @@
-import React, {useState} from "react";
+import React from "react";
 import { useAuth } from "../../context/AuthContext";
 import { AplicacionCard } from "../card/AplicacionCard";
 import { AplicacionUrlCard } from "../card/AplicacionUrlCard";
 import { VPN } from "../VPN";
 
+
+
 function HomeView({setVentana}) {
    const auth = useAuth();
   const {displayName} = auth.user
 
-  
-  
-
-
   return <>
       <h1>Hola {displayName}</h1>
       <hr/>
-      <button type="button" className="btn position-relative">
-        AdGuard
-        <VPN/>
-      </button>
-      
+      <VPN/>
       <hr />
       <div className="row row-cols-1 row-cols-md-3 g-4">
         <AplicacionUrlCard nombre="Gasolineras" version="0.1"/>

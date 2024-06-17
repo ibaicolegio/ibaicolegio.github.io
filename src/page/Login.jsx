@@ -1,7 +1,8 @@
 import React from "react";
 import { useAuth } from "../context/AuthContext";
 import { GoogleIcon } from "../components/icon/GoogleIcon";
-import PWAInstallComponent from "../components/PWAInstall";
+import PWAInstallComponent from "../components/others/PWAInstall";
+import { Whatsapp } from "../components/others/Whatsapp";
 
 function Login() {
    const auth = useAuth();
@@ -11,6 +12,7 @@ function Login() {
     e.preventDefault();
     auth.loginWithGoogle();
   }; 
+
 
 
    return <>
@@ -29,17 +31,11 @@ function Login() {
           </button>
         </div>
         <hr/>
+          <Whatsapp/>
+        <hr/>
         <div className="card">
           <PWAInstallComponent/>
         </div>
-        <hr/>
-        <a href="whatsapp://send?text=https://www.irm.eus" className="text-decoration-none">
-          <div className="card">
-            <button className="btn btn-success btn-lg active text-center">
-              Compartir
-            </button>
-          </div>
-        </a>
       </div>
       <br/>
       </div>

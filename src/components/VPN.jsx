@@ -1,18 +1,30 @@
-import React from "react";
-import { useDetectAdBlock } from "adblock-detect-react";
+import React, {useState} from "react";
+import { checkAdBlock } from "adblock-checker";
+import Alert from 'react-bootstrap/Alert';
+
+const Adblock = async (setAdBlockDetected) => {
+  setAdBlockDetected(await checkAdBlock());
+  console.log(await checkAdBlock());
+  };
 
 export const VPN = () => {
-  const adBlockDetected = useDetectAdBlock();
+  const [adBlockDetected, setAdBlockDetected] = useState (false);
+  Adblock(setAdBlockDetected);
+
+  const openInNewTab = (url) => {
+    window.open(url);
+  };
     if(adBlockDetected){
         return (
-            <span className="position-absolute top-0 start-100 translate-middle p-2 bg-success border border-light rounded-circle">
-              <span className="visually-hidden"></span>
-            </span>
+          <Alert variant="success" onClick={() => openInNewTab('https://adguard.com/en/download.html')} >
+              AdGuard instalador correctamente!
+          </Alert>
         )
     }
     return (
-        <span className="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-          <span className="visually-hidden"></span>
-        </span>
+      <Alert variant="danger" onClick={() => openInNewTab('https://adguard.com/en/download.html')} >
+        Instala AdGuard para evitar anuncios
+      </Alert>
+      
     )
   }
