@@ -14,7 +14,7 @@ function HomeView({setVentana}) {
       <h1>Hola {displayName}</h1>
       <hr/>
       <VPN/>
-      <hr />
+      <hr/>
       <div className="row row-cols-1 row-cols-md-3 g-4">
         <AplicacionUrlCard nombre="Gasolineras" version="0.1"/>
         {/* <AplicacionCard nombre="Gasolineras" version="0.1" setVentana={setVentana}/> */}
