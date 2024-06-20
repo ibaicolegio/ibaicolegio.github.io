@@ -7,10 +7,14 @@ function DeportesView ({setVentana,setNumero}) {
   ]
   const Golf=[{canal:318,nombre:"GOLF Channel USA"},{canal:70,nombre:"Sky Sports Golf UK"},{canal:574,nombre:"Sky Sports Golf Italy"},{canal:422,nombre:"SuperSport Golf"}
   ]
-  const Otros=[{canal:375,nombre:"ESPN Deportes"},{canal:643,nombre:"FOX Deportes USA"},{canal:53,nombre:"NBC USA"}
+  const Tenis=[{canal:40,nombre:"Tennis Channel"},{canal:576,nombre:"Sky Sport Tennis Italy"},{canal:423,nombre:"SuperSport Tennis"}
+  ]
+  const Otros=[{canal:38,nombre:"Sky Sports Main Event"},{canal:375,nombre:"ESPN Deportes"},{canal:643,nombre:"FOX Deportes USA"},
+    {canal:51,nombre:"ABC USA"},{canal:52,nombre:"CBS USA"},{canal:53,nombre:"NBC USA"}
   ]
   const htmlF1 =  F1.map((canal) => <TVCard nombre={canal.nombre} color={"light"} numero={canal.canal} setNumero={setNumero} setVentana={setVentana}/>);
   const htmlFutbol =  Futbol.map((canal) => <TVCard nombre={canal.nombre} color={"light"} numero={canal.canal} setNumero={setNumero} setVentana={setVentana}/>);
+  const htmlTenis =  Tenis.map((canal) => <TVCard nombre={canal.nombre} color={"light"} numero={canal.canal} setNumero={setNumero} setVentana={setVentana}/>);
   const htmlGolf =  Golf.map((canal) => <TVCard nombre={canal.nombre} color={"light"} numero={canal.canal} setNumero={setNumero} setVentana={setVentana}/>);
   const htmlOtros =  Otros.map((canal) => <TVCard nombre={canal.nombre} color={"light"} numero={canal.canal} setNumero={setNumero} setVentana={setVentana}/>);
   return <>
@@ -22,6 +26,11 @@ function DeportesView ({setVentana,setNumero}) {
       <h2>Futbol</h2>
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {htmlFutbol}
+      </div>
+      <hr/>
+      <h2>Tenis</h2>
+      <div className="row row-cols-1 row-cols-md-3 g-4">
+        {htmlTenis}
       </div>
       <hr/>
       <h2>Golf</h2>
