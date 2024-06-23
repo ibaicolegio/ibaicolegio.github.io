@@ -1,9 +1,9 @@
 import { TVCard } from "../card/TVCard";
 
 function DeportesView ({setVentana,setNumero}) {
-  const F1=[{canal:60,nombre:"Sky Sports F1 UK"},{canal:577,nombre:"Sky Sport F1 Italy"}
+  const F1=[{canal:537,nombre:"DAZN F1 ES"},{canal:60,nombre:"Sky Sports F1 UK"},{canal:577,nombre:"Sky Sport F1 IT"},{canal:274,nombre:"Sky Sport F1 DE"},{canal:273,nombre:"Canal+ F1 FR"}
   ]
-  const Futbol=[{canal:415,nombre:"SuperSport LaLiga"}
+  const Futbol=[{canal:84,nombre:"Movistar Laliga"},{canal:435,nombre:"Movistar Liga de Campeones"},{canal:415,nombre:"SuperSport LaLiga"}
   ]
   const Golf=[{canal:318,nombre:"GOLF Channel USA"},{canal:70,nombre:"Sky Sports Golf UK"},{canal:574,nombre:"Sky Sports Golf Italy"},{canal:422,nombre:"SuperSport Golf"}
   ]

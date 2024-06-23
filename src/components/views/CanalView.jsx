@@ -23,7 +23,7 @@ export const CanalView = ({setVentana,numero}) => {
       <iframe className="video responsive" src={src} name="iframe_a" allowFullScreen="yes" width="100%" height="500px"/>
       <a href={src}>
         <div className="alert alert-info" role="alert">
-          Link
+          Web Video Cast
         </div>
       </a>
     </div> 
