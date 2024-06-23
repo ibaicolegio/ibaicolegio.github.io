@@ -12,6 +12,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 const auth = getAuth(firebaseApp);
 
 function App() {
+    console.log(import.meta.env.VITE_API_KEY)
     const [user, setUser] = useState(null);
     onAuthStateChanged(auth, (usuarioFirebase) => {
         usuarioFirebase ? setUser(usuarioFirebase) : setUser(null);
